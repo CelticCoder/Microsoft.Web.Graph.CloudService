@@ -1,0 +1,118 @@
+﻿@Styles.Render("./Content/graph-explorer-styles/bootstrap.css")
+@Styles.Render("./Content/graph-explorer-styles/api-explorer.css")
+@Styles.Render("./Content/graph-explorer-styles/ngProgress.css")
+
+@Scripts.Render("./Scripts/graph-explorer-scripts/angular.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/angular-animate.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-javascript.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/angular-route.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-helpers.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-jsviewer.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-jseditor.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/constants.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/adal.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/adal-angular.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/ngprogress.min.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-init.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-app.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-svc.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-msgraph.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/api-explorer-ctrl.js")
+@Scripts.Render("./Scripts/graph-explorer-scripts/bower-components/angular-bootstrap/ui-bootstrap-tpls.min.js")
+
+@{
+    ViewBag.Title = "GraphExplorer";
+}
+
+<script>
+    if (window.location.protocol != "https:")
+        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+</script>
+<script>
+    //For Accessibility
+    $(document).ready(function () {
+        $(".ace_text-input").attr('aria-label', 'Text area for response');
+    });
+</script>
+<div ng-app="ApiExplorer" ng-controller="ApiExplorerCtrl" role="document">
+    <div class="full-width-container" style="padding-top:10px;">
+        <div class="container-fluid" ng-cloak style="max-width:1020px;">
+            <div>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="nav-item">
+                        <a class="nav-link" ng-show="userInfo.isAuthenticated">{{userInfo.userName}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-show="userInfo.isAuthenticated" ng-click="logout()">Sign out</a>
+                    </li>
+                </ul>
+                <p ng-hide="userInfo.isAuthenticated">@Microsoft.Web.Graph.WebRole.Resources.GraphExplorer.Index.TRY_IN_EXPLORER<a class="nav-link" href="#" ng-click="login()">@Microsoft.Web.Graph.WebRole.Resources.GraphExplorer.Index.SIGN_IN</a>@Microsoft.Web.Graph.WebRole.Resources.GraphExplorer.Index.WORK_WITH_SCHOOL_OFFICE</p>
+            </div>
+
+            <div ng-controller="datalistCtrl">
+                <datalist id="requestList">
+                    <option data-ng-repeat="ttl in urlOptions" value="{{ttl}}">
+                </datalist>
+            </div>
+
+            <div class="body-content" ng-controller="FormCtrl">
+                <div class="input-group">
+                    <div class="input-group-btn" ng-controller="VersionCtrl" style="z-index: 99">
+                        <div class="btn-group" uib-dropdown on-toggle="toggled(open)">
+                            <button id="version-button" type="button" class="btn btn-default" uib-dropdown-toggle>
+                                {{selectedVersion}} <span class="caret"></span>
+                            </button>
+                            <ul class="uib-dropdown-menu">
+                                <li ng-repeat="choice in items">
+                                    <a href="" ng-click="OnItemClick(choice)">{{choice}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="input-group-btn" ng-controller="DropdownCtrl">
+                        <div class="btn-group" uib-dropdown on-toggle="toggled(open)">
+                            <button id="http-verb-button" type="button" class="btn btn-default" uib-dropdown-toggle>
+                                {{selectedOptions}} <span class="caret"></span>
+                            </button>
+                            <ul class="uib-dropdown-menu">
+                                <li ng-repeat="choice in items">
+                                    <a href="" ng-click="OnItemClick(choice)">{{choice}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <form class="main-query" ng-submit="submit()">
+                        <!--    the style addition is for compatibility with IE11-->
+                        <input title="Graph API Request Url" aria-label="Graph API Request Url" type="text" ng-model="text" name="text" class="form-control" placeholder="query" list="requestList" id="queryBar" style="height: 38px" autocomplete="off" />
+                    </form>
+                    <div class="input-group-btn">
+                        <button id="submit-button" type="button" class="btn btn-default" ng-click="submit()">@Microsoft.Web.Graph.WebRole.Resources.GraphExplorer.Index.SUBMIT</button>
+                    </div>
+                    <div class="input-group-btn" id="duration" ng-show="showDuration">
+                        <div class="btn-group" uib-dropdown on-toggle="toggled(open)">
+                            <button id="timeButton" type="button" class="btn btn-default" ng-model="duration" name="duration">
+                                {{duration}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <img id="img" width="250px" height="250px" ng-show="showImage" />
+                <div id="jsonEditor" ng-show="showJsonEditor"></div>
+                <div id="jsonViewer" ng-show="showJsonViewer"></div>
+                <br />
+                <uib-accordion>
+                    <uib-accordion-group heading="Response Headers" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                        <pre id="responseHeaderDetails">{{responseHeaders}}</pre>
+                    </uib-accordion-group>
+                </uib-accordion>
+                @if (HttpContext.Current.Request.Url.AbsoluteUri.Contains("zh-cn"))
+                {
+                    <div>
+                        注意： 此Graph浏览器可与由中国世纪互联运营的 Sovereign 云部署配合使用。单击<a href="/en-us/graph-explorer">此处</a>访问可与由 Microsoft 运营的全球通用云部署配合使用的Graph浏览器版本。
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

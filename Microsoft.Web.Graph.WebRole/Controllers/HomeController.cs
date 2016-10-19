@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Web.Graph.WebRole.ViewModels;
 
 namespace Microsoft.Web.Graph.WebRole.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            HttpContext.Response.ContentType = "text/fdxml";
-            return View();
+            ViewModelBase model = new ViewModelBase(HttpContext.ApplicationInstance.Context);
+            model.PageTitle = "Microsoft Graph - Home";
+            return View(model);
         }
 
         public ActionResult About()

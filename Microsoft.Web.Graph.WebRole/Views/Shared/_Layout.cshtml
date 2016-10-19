@@ -1,11 +1,55 @@
-﻿<!DOCTYPE html>
+﻿@model Microsoft.Web.Graph.WebRole.ViewModels.ViewModelBase
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft.Web.Graph.IO Prototype</title>
+    <meta http-equiv="PRAGMA" content="@Model.Pragma">
+    <meta http-equiv="Cache-control" content="@Model.CacheControl">
+    <title>@Model.PageTitle</title>
+    <script src="@Model.OptimizelyUrl"></script>
+   
+    @*Application Insight start*@
+    <script>
+        @*AppInsights telemetry*@
+        var appInsightInstrumentationKey = "@Model.AppInsightInstrumentationKey";
+        var appInsights = window.appInsights || function (config) {
+            function s(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u; for (o.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", r.getElementsByTagName(e)[0].parentNode.appendChild(o), t.cookie = r.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) s("track" + i.pop()); return config.disableExceptionTracking || (i = "onerror", s("_" + i), u = f[i], f[i] = function (config, r, f, e, o) { var s = u && u(config, r, f, e, o); return s !== !0 && t["_" + i](config, r, f, e, o), s }), t
+        }({
+            instrumentationKey: appInsightInstrumentationKey
+        });
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+    @*Application Insight end*@
 </head>
+
 <body>
+    <fd:header xmlns:fd="http://frontdoor.dce.mp.microsoft.com" />
         @RenderBody()
+    <fd:footer xmlns:fd="http://frontdoor.dce.mp.microsoft.com" />
+    @* Cosmos Tracking code Ends *@
+
+    @* Google Analytics Code Begins*@
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        var gaKey = "@Model.GoogleAnalyticsKey";
+        ga('create', gaKey, 'auto'); //staging and Dev GA
+        ga('require', 'displayfeatures');
+        ga('require', 'linkid', 'linkid.js');
+        ga('send', 'pageview');
+    </script>
+    @* Google Analytics Code End*@
+
+
+
 </body>
+
 </html>

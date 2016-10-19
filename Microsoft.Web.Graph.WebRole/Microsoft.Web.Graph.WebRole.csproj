@@ -66,9 +66,32 @@
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc.4.0.1\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Administration.7.0.0.0\lib\net20\Microsoft.Web.Administration.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Portal.Common">
+      <HintPath>..\Microsoft.Web.Portal.Common\bin\Debug\Microsoft.Web.Portal.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
@@ -140,6 +163,10 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -153,18 +180,53 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DocPageController.cs" />
+    <Compile Include="Controllers\GraphExplorerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\FrontDoorCertValidator.cs" />
     <Compile Include="Filters\ValidateFrontDoorCertificateAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DocMeta.cs" />
+    <Compile Include="Models\DocSets.cs" />
+    <Compile Include="Models\Toc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\GraphExplorer\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\GraphExplorer\Index.ja-jp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.ja-jp.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\GraphExplorer\Index.de-de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.de-de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\GraphExplorer\Index.zh-cn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.zh-cn.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util\BlobManager.cs" />
+    <Compile Include="Util\DocContentManager.cs" />
+    <Compile Include="Util\XmlReader.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\graph-explorer-styles\api-explorer.css" />
+    <Content Include="Content\graph-explorer-styles\bootstrap.css" />
+    <Content Include="Content\graph-explorer-styles\ngProgress.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg">
       <SubType>Designer</SubType>
@@ -173,8 +235,37 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EmbeddedResource Include="Resources\GraphExplorer\Index.zh-cn.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.zh-cn.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <EmbeddedResource Include="Resources\GraphExplorer\Index.de-de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.de-de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\graph-explorer-scripts\ace.js" />
+    <Content Include="Scripts\graph-explorer-scripts\adal-angular.js" />
+    <Content Include="Scripts\graph-explorer-scripts\adal.js" />
+    <Content Include="Scripts\graph-explorer-scripts\angular-animate.js" />
+    <Content Include="Scripts\graph-explorer-scripts\angular-route.js" />
+    <Content Include="Scripts\graph-explorer-scripts\angular.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-app.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-ctrl.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-helpers.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-init.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-jseditor.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-jsviewer.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-msgraph.js" />
+    <Content Include="Scripts\graph-explorer-scripts\api-explorer-svc.js" />
+    <Content Include="Scripts\graph-explorer-scripts\bower-components\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\graph-explorer-scripts\bower-components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\graph-explorer-scripts\constants.js" />
+    <Content Include="Scripts\graph-explorer-scripts\mode-javascript.js" />
+    <Content Include="Scripts\graph-explorer-scripts\ngprogress.min.js" />
+    <Content Include="Scripts\graph-explorer-scripts\ui-bootstrap-tpls-0.14.3.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -186,7 +277,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -200,18 +293,36 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\GraphExplorer\Index.cshtml" />
+    <Content Include="Views\DocPage\GetDocPage.cshtml" />
+    <Content Include="Views\DocPage\_DocContent.cshtml" />
+    <Content Include="Views\DocPage\_DocToc.cshtml" />
+    <Content Include="Views\DocPage\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\GraphExplorer\Index.ja-jp.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.ja-jp.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GraphExplorer\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

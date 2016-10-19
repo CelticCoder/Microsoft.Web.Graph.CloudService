@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="Default Web Site/MicrosoftGraphTest" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\UniversalHeader\\Microsoft\.Web\.Graph\\Microsoft\.Web\.Graph\\Microsoft\.Web\.Graph\.CloudService\\Microsoft\.Web\.Graph\.WebRole\\obj\\Debug\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\UniversalHeader\\Microsoft\.Web\.Graph\\Microsoft\.Web\.Graph\\Microsoft\.Web\.Graph\.CloudService\\Microsoft\.Web\.Graph\.WebRole\\obj\\Debug\\Package\\PackageTmp$" />
-  </parameter>
-</parameters>

@@ -1,12 +1,24 @@
-<<<<<<< HEAD
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Microsoft.Web.Graph.CloudService", "Microsoft.Web.Graph.CloudService\Microsoft.Web.Graph.CloudService.ccproj", "{3F1179E2-D485-4235-AE43-DCCE1F7F5C5C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC114012-37CB-427F-B981-93F8BABA2306} = {AC114012-37CB-427F-B981-93F8BABA2306}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.Graph.WebRole", "Microsoft.Web.Graph.WebRole\Microsoft.Web.Graph.WebRole.csproj", "{047D7AED-0759-4247-BA9B-2964EFC32C64}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC114012-37CB-427F-B981-93F8BABA2306} = {AC114012-37CB-427F-B981-93F8BABA2306}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.Graph.WebRole.UnitTests", "Microsoft.Web.Graph.WebRole.UnitTests\Microsoft.Web.Graph.WebRole.UnitTests.csproj", "{AD97C9E5-099B-4616-8EED-5D1E1D7CF15D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC114012-37CB-427F-B981-93F8BABA2306} = {AC114012-37CB-427F-B981-93F8BABA2306}
+		{047D7AED-0759-4247-BA9B-2964EFC32C64} = {047D7AED-0759-4247-BA9B-2964EFC32C64}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.Portal.Common", "Microsoft.Web.Portal.Common\Microsoft.Web.Portal.Common.csproj", "{AC114012-37CB-427F-B981-93F8BABA2306}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,38 +34,16 @@ Global
 		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD97C9E5-099B-4616-8EED-5D1E1D7CF15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD97C9E5-099B-4616-8EED-5D1E1D7CF15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD97C9E5-099B-4616-8EED-5D1E1D7CF15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD97C9E5-099B-4616-8EED-5D1E1D7CF15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC114012-37CB-427F-B981-93F8BABA2306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC114012-37CB-427F-B981-93F8BABA2306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC114012-37CB-427F-B981-93F8BABA2306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC114012-37CB-427F-B981-93F8BABA2306}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
-=======
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Microsoft.Web.Graph.CloudService", "Microsoft.Web.Graph.CloudService\Microsoft.Web.Graph.CloudService.ccproj", "{3F1179E2-D485-4235-AE43-DCCE1F7F5C5C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Web.Graph.WebRole", "Microsoft.Web.Graph.WebRole\Microsoft.Web.Graph.WebRole.csproj", "{047D7AED-0759-4247-BA9B-2964EFC32C64}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3F1179E2-D485-4235-AE43-DCCE1F7F5C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F1179E2-D485-4235-AE43-DCCE1F7F5C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F1179E2-D485-4235-AE43-DCCE1F7F5C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F1179E2-D485-4235-AE43-DCCE1F7F5C5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{047D7AED-0759-4247-BA9B-2964EFC32C64}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
->>>>>>> 8f66c6d6640c7d1e0cde3a6057241b48f74e36b5
