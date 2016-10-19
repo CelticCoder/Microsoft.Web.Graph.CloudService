@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.Web.Graph.WebRole.Util;
-using DynamicDocs.Models;
-using Microsoft.Web.Portal.Common.Culture;
-using Microsoft.Web.Portal.Common.Logging;
-using Microsoft.Web.Portal.Common.Telemetry;
-
-namespace Microsoft.Web.Graph.WebRole.Controllers
+﻿namespace Microsoft.Web.Graph.WebRole.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using Microsoft.Web.Graph.WebRole.Util;
+    using DynamicDocs.Models;
+    using Microsoft.OfficeDevPortals.Shared.Telemetry;
+    using Microsoft.OfficeDevPortals.Shared.Logging;
+    using Microsoft.OfficeDevPortals.Shared.Culture;
+
     public class DocPageController : BaseController
     {
         private ICultureService _cultureService = null;

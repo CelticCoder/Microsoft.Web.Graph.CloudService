@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using Microsoft.OfficeDevPortals.Shared.Telemetry;
 
 namespace Microsoft.Web.Portal.Common.Telemetry
 {

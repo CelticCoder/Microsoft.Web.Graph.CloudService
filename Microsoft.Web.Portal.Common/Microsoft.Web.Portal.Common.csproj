@@ -76,11 +76,8 @@
   <ItemGroup>
     <Compile Include="Culture\CultureService.cs" />
     <Compile Include="Environment.cs" />
-    <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Culture\ICultureService.cs" />
-    <Compile Include="Telemetry\ITelemetry.cs" />
     <Compile Include="Telemetry\ApplicationInsightsTelemetry.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +87,12 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.OfficeDevPortals.Shared\Microsoft.OfficeDevPortals.Shared.csproj">
+      <Project>{df6b7ecb-ab09-4c31-a363-ff72af50944a}</Project>
+      <Name>Microsoft.OfficeDevPortals.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

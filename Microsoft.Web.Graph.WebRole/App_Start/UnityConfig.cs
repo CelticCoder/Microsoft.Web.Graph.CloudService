@@ -1,6 +1,9 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Microsoft.OfficeDevPortals.Shared.Telemetry;
+using Microsoft.OfficeDevPortals.Shared.Logging;
+using Microsoft.OfficeDevPortals.Shared.Culture;
 using Microsoft.Web.Portal.Common.Culture;
 using Microsoft.Web.Portal.Common.Logging;
 using Microsoft.Web.Portal.Common.Telemetry;
