@@ -324,6 +324,12 @@
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.OfficeDevPortals.Shared\Microsoft.OfficeDevPortals.Shared.csproj">
+      <Project>{df6b7ecb-ab09-4c31-a363-ff72af50944a}</Project>
+      <Name>Microsoft.OfficeDevPortals.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

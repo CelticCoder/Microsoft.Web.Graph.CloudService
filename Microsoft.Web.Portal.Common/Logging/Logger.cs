@@ -1,19 +1,9 @@
 ﻿using log4net;
 using System.Diagnostics.Contracts;
+using Microsoft.OfficeDevPortals.Shared.Logging;
 
 namespace Microsoft.Web.Portal.Common.Logging
 {
-    /// <summary>
-    /// Log level enumeration
-    /// </summary>
-    public enum LogLevel {
-        Debug,
-        Information,
-        Warning,
-        Error,
-        Fatal
-    };
-
     /// <summary>
     /// Logger implementation using log4net
     /// </summary>

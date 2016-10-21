@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Microsoft.Web.Portal.Common.Culture;
+using Microsoft.OfficeDevPortals.Shared.Culture;
 using Microsoft.Practices.Unity;
 
 namespace Microsoft.Web.Graph.WebRole

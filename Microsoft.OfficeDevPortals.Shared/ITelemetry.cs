@@ -1,8 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//------------------------------------------------------------------------------
+// <copyright file="ITelemetry.cs" company="Microsoft Corporation">
+//     Copyright (c) Microsoft Corporation.  All rights reserved.
+//     Developed by patrickp Office Developer Experience Engineering Team 
+// </copyright>
+// <summary>
+//      Interface definition for the Telemetry Service
+// </summary>
+//------------------------------------------------------------------------------
 
-namespace Microsoft.Web.Portal.Common.Telemetry
+namespace Microsoft.OfficeDevPortals.Shared.Telemetry
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Interface for Portals Telemetry objects
+    /// </summary>
     public interface ITelemetry
     {
         /// <summary>
