@@ -34,36 +34,6 @@ namespace MSGraphTest
         {
             GraphBrowser.Goto(GraphBrowser.BaseAddress);
         }
-         
-        /// <summary>
-        /// Verify whether Home page can be navigated to by clicking the branding image.
-        /// </summary>
-        /*
-        [TestMethod]
-        [Owner("ashirs")]
-        public void BVT_Graph_S01_TC01_CanBrandingNavToHomePage()
-        {
-            GraphPages.Navigation.Select("Home");
-            //Currently ignore the Graph explorer, since this page desn't have Microsoft
-            //Graph branding image
-            string[] navOptions = new string[] { 
-                "Home",
-                "Get started", 
-                "Documentation", 
-                //"Graph explorer", 
-                //"App registration", 
-                "Samples & SDKs", 
-                "Changelog" };
-            string navPage = navOptions[new Random().Next(navOptions.Length)];
-            GraphPages.Navigation.Select(navPage);
-            GraphBrowser.Wait(TimeSpan.FromSeconds(3));
-            GraphUtility.ClickBranding();
-
-            Assert.IsTrue(
-                GraphPages.Navigation.IsAtGraphPage("Home"),
-                @"Clicking the branding image should navigate to Graph Home Page");
-        }
-        */
 
         /// <summary>
         /// Verify whether Get started page can be navigated to.
@@ -132,32 +102,6 @@ namespace MSGraphTest
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be ""Changelog""");
         }
-
-        /// <summary>
-        /// Verify whether the default banner image can be loaded.
-        /// </summary>
-        /* Commenting out, since the banner image is already checked by CanLoadGraphPageImages
-        [TestMethod]
-        [Owner("ashirs")]
-        public void BVT_Graph_S01_TC07_CanLoadBannerImage()
-        {
-            //Currently ignore Graph explorer, Get Started, and Documentation, since these pages don't have banner image
-            //Graph branding image
-            string[] navOptions = new string[] { 
-                //"Home",
-                //"Get started", 
-                //"Documentation", 
-                //"Graph explorer", 
-                "Samples & SDKs", 
-                "Changelog" };
-
-            string navPage = navOptions[new Random().Next(navOptions.Length)];
-            GraphPages.Navigation.Select(navPage);
-            string imageUrl = GraphUtility.GetGraphBannerImageUrl();
-           
-            Assert.IsTrue(GraphUtility.FileExist(imageUrl), "The banner image should be valid to load");
-        }
-        */
 
         /// <summary>
         /// Verify whether the default banner image can be loaded.
