@@ -65,11 +65,9 @@
   <ItemGroup>
     <Compile Include="MSGraphCodeSamplePageTest.cs" />
     <Compile Include="MSGraphDocumentationTest.cs" />
-    <Compile Include="MSGraphExplorerTest.cs" />
     <Compile Include="MSGraphGetstartedTest.cs" />
     <Compile Include="MSGraphHomePageTest.cs" />
     <Compile Include="MSGraphNavigationTest.cs" />
-    <Compile Include="MSGraphSearchTest.cs" />
     <Compile Include="MSGraphShareTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MSGraphSiteTest.cs" />

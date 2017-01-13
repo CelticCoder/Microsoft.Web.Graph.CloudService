@@ -10,27 +10,21 @@ namespace TestFramework
         public GraphNavigation()
         { }
         [FindsBy(How = How.XPath, Using = "//a[@id='shell-cat-header-logo']")]
-        //[FindsBy(How = How.XPath, Using = "//*[@id='navbar-collapse-1']/ul/li[1]/a")]
         private IWebElement homeLinkElement;
-
-        //[FindsBy(How = How.XPath, Using = "//ul[@class='nav navbar-nav']/li/a[contains(@href,'/getting-started')]")]
+        
         [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/getting-started')]")]
         private IWebElement getstartedLinkElement;
-
-        //[FindsBy(How = How.XPath, Using = "//ul[@class='nav navbar-nav']/li/a[contains(@href,'/docs')]")]
+        
         [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/docs')]")]
         private IWebElement documentationLinkElement;
-
-        //[FindsBy(How = How.XPath, Using = "//ul[@class='nav navbar-nav']/li/a[contains(@href,'/graph-explorer')]")]
+        
         [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/graph-explorer')]")]
         private IWebElement exploreLinkElement;
 
         [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/code-samples-and-sdks')]")]
-        //[FindsBy(How = How.XPath, Using = "//ul[@class='nav navbar-nav']/li/a[contains(@href,'/code-samples-and-sdks')]")]
         private IWebElement samplesandsdksLinkElement;
 
         [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/changelog')]")]
-        //[FindsBy(How = How.XPath, Using = "//ul[@class='nav navbar-nav']/li/a[contains(@href,'/changelog')]")]
         private IWebElement changelogLinkElement;
 
         public string Select(string menuName)

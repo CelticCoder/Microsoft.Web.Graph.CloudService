@@ -30,11 +30,6 @@ namespace TestFramework
             {
                 case (GraphPageImages.MainBanner):
                     var element = GraphBrowser.FindElement(By.ClassName("dxp-banner-default"));
-                    //The div in Home page does not have id attribute
-                    //if (element == null)
-                    //{
-                    //    element = GraphBrowser.FindElement(By.CssSelector("div#layout-featured>div>article>div>div>div>div"));
-                    //}
                     string Url = ((string)(GraphBrowser.webDriver as IJavaScriptExecutor).ExecuteScript(@"return getComputedStyle(arguments[0])['background-image'];", element)).Replace(@"url(""", "").Replace(@""")", "");
                     return GraphUtility.FileExist(Url);
                 case (GraphPageImages.Others):

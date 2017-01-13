@@ -48,18 +48,6 @@ namespace TestFramework
         }
 
         /// <summary>
-        /// Click the branding image on the page
-        /// Unused on new graph architecture, as there is no longer a branding image separate from the home button
-        /// </summary>
-        /*
-        public static void ClickBranding()
-        {
-            var element = GraphBrowser.FindElement(By.CssSelector("#branding>a"));
-            GraphBrowser.Click(element);
-        }
-        */
-
-        /// <summary>
         /// Get the document title in the current doc page
         /// </summary>
         /// <returns>The title of document</returns>
@@ -174,15 +162,9 @@ namespace TestFramework
         public static string RemoveRedundantPartsfromExtractBaseAddress()
         {
             string prefix = GraphBrowser.BaseAddress;
-            //Remove any querystring from the base address (used for internal testing of new graph architecture)
-            //int queryIdx = prefix.IndexOf("?");
-            //if (queryIdx > 0)
-            //{
-            //    prefix = prefix.Substring(0, queryIdx);
-            //}
 
             //GraphBrowser.BaseAddress should end with ..-../graph, where ..-.. is a locale
-            //remove everything after that first instance of /graph
+            //remove everything after that first instance of /graph (which includes a querystring)
             prefix = prefix.Substring(0, prefix.IndexOf("/graph") + 6);
 
             //change to https if it is not already
