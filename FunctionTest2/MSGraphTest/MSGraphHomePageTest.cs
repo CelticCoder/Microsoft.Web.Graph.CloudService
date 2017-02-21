@@ -67,39 +67,6 @@ namespace MSGraphTest
                 title,
                 navPage);
         }
-
-        /// <summary>
-        /// Verify whether Overview is shown when "See overview" is clicked.
-        /// </summary>
-        [TestMethod]
-        [Owner("arvindsa")]
-        public void Acceptance_Graph_S02_TC02_ClickSeeOverviewCanShowDocumentaionPage()
-        {
-            GraphUtility.SelectToSeeOverView();
-            string docTitle = GraphUtility.GetDocTitle();
-            string overviewDocTitle = "Overview of Microsoft Graph";
-            Assert.IsTrue(
-                docTitle == overviewDocTitle,
-                "The documentation should be {0} when clicking See overview on Home page",
-                overviewDocTitle);
-        }
-
-        /// <summary>
-        /// Verify whether GraphExplorer is shown when "Try the API" is clicked.
-        /// </summary>
-        [TestMethod]
-        [Owner("arvindsa")]
-        public void Acceptance_Graph_S02_TC03_ClickTryAPIOnExplorerCanShowPage()
-        {
-            string explorerTitle = TestHelper.VerifyAndSelectExplorerOnNavBar();
-            GraphBrowser.GoBack();
-            
-            GraphUtility.SelectToTryAPI();
-            Assert.IsTrue(
-                GraphBrowser.SwitchToWindow(explorerTitle),
-                @"The opened page should be ""{0}"" when clicking Try the API",
-                explorerTitle);
-            GraphBrowser.SwitchBack();
-        }
+        
     }
 }

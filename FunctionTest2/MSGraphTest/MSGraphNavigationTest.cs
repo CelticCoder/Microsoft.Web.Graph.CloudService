@@ -42,7 +42,7 @@ namespace MSGraphTest
         [Owner("ashirs")]
         public void BVT_Graph_S01_TC02_CanGoToGetstartedPage()
         {
-            string title = GraphPages.Navigation.Select("Get started");
+            string title = GraphPages.Navigation.Select("Quick start");
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be {0}",
@@ -104,6 +104,19 @@ namespace MSGraphTest
         }
 
         /// <summary>
+        /// Verify whether Changelog page can be navigated to.
+        /// </summary>        
+        [TestMethod]
+        [Owner("ashirs")]
+        public void BVT_Graph_S01_TC07_CanGoToExamplesPage()
+        {
+            string title = GraphPages.Navigation.Select("Examples");
+            Assert.IsTrue(
+                GraphPages.Navigation.IsAtGraphPage(title),
+                @"The opened page should be ""Examples""");
+        }
+
+        /// <summary>
         /// Verify whether the default banner image can be loaded.
         /// </summary>
         [TestMethod]
@@ -114,12 +127,11 @@ namespace MSGraphTest
             //Graph branding image
             string[] navOptions = new string[] {
                 "Home",
-                //"Get started", 
-                //"Documentation", 
+                "Get started", 
+                "Documentation", 
                 //"Graph explorer", 
                 //"App registration",
-                "Samples & SDKs",
-                "Changelog" };
+                "Samples & SDKs"};
 
             foreach (string navPage in navOptions)
             {
@@ -136,7 +148,11 @@ namespace MSGraphTest
                     var graphPage = new GraphPage();
                     foreach (GraphPageImages item in Enum.GetValues(typeof(GraphPageImages)))
                     {
-                        Assert.IsTrue(graphPage.CanLoadImages(item));
+                        //No pages except Home have a banner image anymore
+                        if (!item.ToString().Equals("MainBanner"))
+                        {
+                            Assert.IsTrue(graphPage.CanLoadImages(item));
+                        }
                     }
                 }
             }

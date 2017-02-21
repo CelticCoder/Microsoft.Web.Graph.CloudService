@@ -15,7 +15,7 @@ namespace TestFramework
         /// <summary>
         /// The title of the Code Samples and SDKs page
         /// </summary>
-        private static string _pageTitle = "Microsoft Graph - Samples & SDKs";
+        private static string _pageTitle = "Samples & SDKs - Microsoft Graph";
 
         [FindsBy(How = How.Id, Using = "body-content")]
         public IWebElement _bodyElement;

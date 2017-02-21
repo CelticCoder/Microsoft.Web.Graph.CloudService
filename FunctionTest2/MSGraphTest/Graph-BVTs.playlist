@@ -9,4 +9,5 @@
   <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC01_CanChoosePlatform" />
   <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC02_ShowThreeCardsByDefault" />
   <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC10_CanLoadGettingStartedPlatformImages" />
+  <Add Test="MSGraphTest.MSGraphNavigationTest.BVT_Graph_S01_TC07_CanGoToExamplesPage" />
 </Playlist>
