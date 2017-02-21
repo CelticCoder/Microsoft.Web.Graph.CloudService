@@ -9,23 +9,31 @@ namespace TestFramework
     {
         public GraphNavigation()
         { }
-        [FindsBy(How = How.XPath, Using = "//a[@id='shell-cat-header-logo']")]
+        [FindsBy(How = How.XPath, Using = "//a[@class='c-logo' and contains(@href,'/en-us/graph')]")]
         private IWebElement homeLinkElement;
-        
-        [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/getting-started')]")]
+
+        //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/getting-started')]")]
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/en-us/graph/quick-start')]")]
         private IWebElement getstartedLinkElement;
-        
-        [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/docs')]")]
+
+        //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/docs')]")]
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/en-us/graph/docs')]")]
         private IWebElement documentationLinkElement;
         
-        [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/graph-explorer')]")]
+        //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/graph-explorer')]")]
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/en-us/graph/graph-explorer')]")]
         private IWebElement exploreLinkElement;
 
-        [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/code-samples-and-sdks')]")]
+        //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/code-samples-and-sdks')]")]
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/en-us/graph/code-samples-and-sdks')]")]
         private IWebElement samplesandsdksLinkElement;
 
-        [FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/changelog')]")]
+        //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/en-us/graph/docs/overview/changelog')]")]
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/en-us/graph/docs/overview/changelog')]")]
         private IWebElement changelogLinkElement;
+
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/en-us/graph/examples')]")]
+        private IWebElement examplesLinkElement;
 
         public string Select(string menuName)
         {
@@ -36,7 +44,7 @@ namespace TestFramework
                     menuItemText = homeLinkElement.Text;
                     GraphBrowser.Click(homeLinkElement);
                     break;
-                case ("Get started"):
+                case ("Quick start"):
                     menuItemText = getstartedLinkElement.Text;
                     GraphBrowser.Click(getstartedLinkElement);
                     break;
@@ -55,6 +63,10 @@ namespace TestFramework
                 case ("Changelog"):
                     menuItemText = changelogLinkElement.Text;
                     GraphBrowser.Click(changelogLinkElement);
+                    break;
+                case ("Examples"):
+                    menuItemText = examplesLinkElement.Text;
+                    GraphBrowser.Click(examplesLinkElement);
                     break;
                 default:
                     break;

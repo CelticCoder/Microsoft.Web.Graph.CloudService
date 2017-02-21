@@ -12,9 +12,9 @@ namespace TestFramework.Office365Page
 
         public void ChooseService(ServiceToTry serviceToTry)
         {
-            if (!GraphBrowser.Url.Contains("/getting-started"))
+            if (!GraphBrowser.Url.Contains("/quick-start"))
             {
-                GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/getting-started#try-it-out");
+                GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/quick-start#try-it-out");
             }
 
             int serviceIndex = (int)serviceToTry;

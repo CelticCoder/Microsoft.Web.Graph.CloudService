@@ -21,13 +21,14 @@ namespace TestFramework
             switch (image)
             {
                 case (GraphPageImages.MainBanner):
-                    var element = GraphBrowser.FindElement(By.ClassName("dxp-banner-homepage"));
+                    var element = GraphBrowser.FindElement(By.TagName("picture")).FindElement(By.TagName("img"));
+                    string Url = element.GetAttribute("src");
                     //The div in Home page does not have id attribute
                     //if (element == null)
                     //{
                     //    element = GraphBrowser.FindElement(By.CssSelector("div#layout-featured>div>article>div>div>div>div"));
                     //}
-                    string Url = ((string)(GraphBrowser.webDriver as IJavaScriptExecutor).ExecuteScript(@"return getComputedStyle(arguments[0])['background-image'];", element)).Replace(@"url(""", "").Replace(@""")", "");
+                    //string Url = ((string)(GraphBrowser.webDriver as IJavaScriptExecutor).ExecuteScript(@"return getComputedStyle(arguments[0])['background-image'];", element)).Replace(@"url(""", "").Replace(@""")", "");
                     return GraphUtility.FileExist(Url);
                case (GraphPageImages.Others):
                     var elements = GraphBrowser.Driver.FindElements(By.CssSelector("img"));

@@ -53,7 +53,7 @@ namespace MSGraphTest
         [Owner("ambate")]
         public void BVT_Graph_S03_TC02_ShowThreeCardsByDefault()
         {
-            GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/getting-started");
+            GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/quick-start");
             Assert.IsTrue(GraphUtility.CheckThreeCardsDisplayed(), "Default cards in Getting Started are not displayed correctly.");
         }
 
@@ -240,7 +240,7 @@ namespace MSGraphTest
         {
             Platform platform = Platform.Node;
             //Simulate app registration via hardcoded querystring
-            GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/getting-started?appID=c4664f74-aec4-4462-93e9-fb84a25d1f28&appName=My%20Node.js%20App&redirectUrl=http://localhost:3000/login&platform=option-node");
+            GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/quick-start?appID=c4664f74-aec4-4462-93e9-fb84a25d1f28&appName=My%20Node.js%20App&redirectUrl=http://localhost:3000/login&platform=option-node");
             Assert.IsTrue(GraphPages.Office365Page.CardSetupPlatform.IsShowingPlatformSetup(platform), "Failed to choose platform {0}, which should be picked from querystring and selected on page load", platform.ToString());
 
             GraphPages.Office365Page.CardDownloadCode.DownloadCode();
@@ -253,7 +253,7 @@ namespace MSGraphTest
         {
             //Platform platform = Platform.PHP;
             //GraphPages.Office365Page.CardSetupPlatform.ChoosePlatform(platform);
-            GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/getting-started#setup");
+            GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/quick-start#setup");
             Assert.IsTrue(GraphPages.Office365Page.CanLoadImages());
         }
     }

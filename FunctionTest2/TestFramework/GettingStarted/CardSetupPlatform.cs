@@ -7,9 +7,9 @@ namespace TestFramework.Office365Page
     {
         public void ChoosePlatform(Platform platformName)
         {
-            if (!GraphBrowser.Url.Contains("/getting-started"))
+            if (!GraphBrowser.Url.Contains("/quick-start"))
             {
-                GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/getting-started#setup");
+                GraphBrowser.Goto(GraphUtility.RemoveRedundantPartsfromExtractBaseAddress() + "/quick-start#setup");
             }
             
             //To account for iOS_Swift and iOS_Objective_C enums, since enum cannot contain - character but the div IDs contain -
@@ -22,7 +22,7 @@ namespace TestFramework.Office365Page
 
         public bool IsShowingPlatformSetup(Platform platformName)
         {
-            var setupPlatformDoc = GraphBrowser.Driver.FindElement(By.CssSelector("#ShowDocumentationDiv>h1"));
+            var setupPlatformDoc = GraphBrowser.Driver.FindElement(By.CssSelector("#ShowDocumentationDiv>h3"));
             string platformDescription = EnumExtension.GetDescription(platformName).ToLower();
             //iOS swift and objective C descriptions only contain the word "ios," not full platform name
             if (platformDescription.Contains("ios"))
