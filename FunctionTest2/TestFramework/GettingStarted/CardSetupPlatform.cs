@@ -22,7 +22,7 @@ namespace TestFramework.Office365Page
 
         public bool IsShowingPlatformSetup(Platform platformName)
         {
-            var setupPlatformDoc = GraphBrowser.Driver.FindElement(By.CssSelector("#ShowDocumentationDiv>h3"));
+            var setupPlatformDoc = GraphBrowser.Driver.FindElement(By.CssSelector("#ShowDocumentationDiv>h4"));
             string platformDescription = EnumExtension.GetDescription(platformName).ToLower();
             //iOS swift and objective C descriptions only contain the word "ios," not full platform name
             if (platformDescription.Contains("ios"))

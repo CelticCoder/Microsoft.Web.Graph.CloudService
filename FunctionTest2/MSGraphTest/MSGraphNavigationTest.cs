@@ -42,7 +42,7 @@ namespace MSGraphTest
         [Owner("ashirs")]
         public void BVT_Graph_S01_TC02_CanGoToGetstartedPage()
         {
-            string title = GraphPages.Navigation.Select("Quick start");
+            string title = GraphPages.Navigation.Select("Quick start", true);
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be {0}",
