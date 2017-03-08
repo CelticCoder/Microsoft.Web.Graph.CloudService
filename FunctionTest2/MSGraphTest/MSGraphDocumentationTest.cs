@@ -272,10 +272,10 @@ namespace MSGraphTest
             GraphBrowser.SetWindowSize(0, 0, true);
             GraphPages.Navigation.Select("Documentation");
             //If the table of content is replaced by the toggle arrow, click the arrow to display table of content
-            if (GraphUtility.IsToggleArrowDisplayed())
-            {
-                GraphUtility.ToggleMenu();
-            }
+            //if (GraphUtility.IsToggleArrowDisplayed())
+            //{
+            //    GraphUtility.ToggleMenu();
+            //}
 
             //int layerCount = Utility.GetTOCLayer();
             //var failedDocList = Utility.CheckAllDocuments(layerCount);

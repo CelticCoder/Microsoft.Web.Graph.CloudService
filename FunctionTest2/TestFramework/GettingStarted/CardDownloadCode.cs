@@ -14,8 +14,8 @@ namespace TestFramework.Office365Page
             var downloadBtn = GraphBrowser.Driver.FindElement(By.Id("downloadCodeSampleButtonRest"));
             GraphBrowser.Click(downloadBtn);
 
-            // When the card indicates all thing is done is displayed, the click event can be considered as finished.
-            GraphBrowser.Wait(By.Id("AllSet"));
+            // Give 3 seconds for download to finish before checking for postdownload instructions
+            GraphBrowser.Wait(TimeSpan.FromSeconds(int.Parse(GraphUtility.GetConfigurationValue("WaitTime"))));
         }
 
         public bool IsCodeDownloaded()
