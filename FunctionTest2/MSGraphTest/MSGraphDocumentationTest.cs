@@ -265,7 +265,6 @@ namespace MSGraphTest
         /// <summary>
         /// 
         /// </summary>
-        [TestMethod]
         [Owner("ambate")]
         public void CanTraverseTocAndAccessDocs()
         {

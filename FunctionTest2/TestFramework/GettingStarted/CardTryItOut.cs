@@ -18,7 +18,20 @@ namespace TestFramework.Office365Page
             }
 
             int serviceIndex = (int)serviceToTry;
-            var service = GraphBrowser.Driver.FindElement(By.Id("serviceOption"+serviceIndex));
+            string serviceSuffix = string.Empty;
+            switch (serviceToTry)
+            {
+                case ServiceToTry.GetContacts: serviceSuffix = "-get-contacts"; break;
+                case ServiceToTry.GetEvents: serviceSuffix = "-get-calendars"; break;
+                case ServiceToTry.GetFiles: serviceSuffix = "-get-files"; break;
+                case ServiceToTry.GetGroups: serviceSuffix = "-get-groups"; break;
+                case ServiceToTry.GetMessages: serviceSuffix = "-get-mails"; break;
+                case ServiceToTry.GetUsers: serviceSuffix = "-get-users"; break;
+                default:
+                    break;
+            }
+            //var service = GraphBrowser.Driver.FindElement(By.Id("serviceOption"+serviceIndex));
+            var service = GraphBrowser.Driver.FindElement(By.Id("serviceOption" + serviceSuffix));
             GraphBrowser.Click(service);
             currentSerivce = serviceToTry;
         }
