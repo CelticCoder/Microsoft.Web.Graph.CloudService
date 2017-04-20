@@ -43,6 +43,10 @@ namespace MSGraphTest
         public void BVT_Graph_S01_TC02_CanGoToGetstartedPage()
         {
             string title = GraphPages.Navigation.Select("Quick start", true);
+            if (GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be {0}",
@@ -57,6 +61,10 @@ namespace MSGraphTest
         public void BVT_Graph_S01_TC03_CanGoToDocumentationPage()
         {
             string title = GraphPages.Navigation.Select("Documentation");
+            if(GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be {0}",
@@ -71,6 +79,10 @@ namespace MSGraphTest
         public void BVT_Graph_S01_TC04_CanGoToGraphExplorerPage()
         {
             string title = TestHelper.VerifyAndSelectExplorerOnNavBar();
+            if (GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be ""Graph explorer""");
@@ -84,6 +96,10 @@ namespace MSGraphTest
         public void BVT_Graph_S01_TC05_CanGoToSamplesAndSDKsPage()
         {
             string title = GraphPages.Navigation.Select("Samples & SDKs");
+            if (GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be {0}",
@@ -98,6 +114,10 @@ namespace MSGraphTest
         public void BVT_Graph_S01_TC06_CanGoToChangelogPage()
         {
             string title = GraphPages.Navigation.Select("Changelog");
+            if (GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be ""Changelog""");
@@ -111,6 +131,10 @@ namespace MSGraphTest
         public void BVT_Graph_S01_TC07_CanGoToExamplesPage()
         {
             string title = GraphPages.Navigation.Select("Examples");
+            if (GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
             Assert.IsTrue(
                 GraphPages.Navigation.IsAtGraphPage(title),
                 @"The opened page should be ""Examples""");
@@ -136,6 +160,10 @@ namespace MSGraphTest
             foreach (string navPage in navOptions)
             {
                 GraphPages.Navigation.Select(navPage);
+                if (GraphUtility.BrowserType == "IE32")
+                {
+                    GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+                }
                 if (navPage == "Home")
                 {
                     foreach (GraphPageImages item in Enum.GetValues(typeof(GraphPageImages)))

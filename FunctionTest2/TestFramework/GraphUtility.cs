@@ -18,6 +18,7 @@ namespace TestFramework
     {
         public static int DefaultWaitTime = int.Parse(GetConfigurationValue("DefaultWaitTime"));
         public static readonly int MinWidthToShowParam = 895;
+        public static string BrowserType = GetConfigurationValue("Browser");
 
         /// <summary>
         /// Verify if the toggle arrow is found on the page 
