@@ -285,7 +285,9 @@ namespace TestFramework
                     webDriver = new ChromeDriver(System.IO.Directory.GetCurrentDirectory() + @"/Drivers/");
                     break;
                 case ("ie32"):
-                    webDriver = new InternetExplorerDriver(System.IO.Directory.GetCurrentDirectory() + @"/Drivers/IE32/");
+                    InternetExplorerOptions ieOptions = new InternetExplorerOptions();
+                    ieOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+                    webDriver = new InternetExplorerDriver(System.IO.Directory.GetCurrentDirectory() + @"/Drivers/IE32/", ieOptions);
                     break;
                 case ("ie64"):
                     webDriver = new InternetExplorerDriver(System.IO.Directory.GetCurrentDirectory() + @"/Drivers/IE64/", new InternetExplorerOptions() {RequireWindowFocus = true });
