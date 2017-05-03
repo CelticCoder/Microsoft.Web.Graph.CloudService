@@ -677,10 +677,9 @@ namespace TestFramework
             return GraphBrowser.FindElement(By.CssSelector("#sidebarcontrol")).GetCssValue("display") != "none";
         }
 
-        public static bool CheckThreeCardsDisplayed()
+        public static bool CheckTwoCardsDisplayed()
         {
             GraphBrowser.Wait(By.Id("setup"));
-            GraphBrowser.Wait(By.Id("try-it-out"));
 
             var elements = GraphBrowser.Driver.FindElements(By.ClassName("card"));
             if (elements.Count > 0)
@@ -688,12 +687,12 @@ namespace TestFramework
                 foreach (IWebElement item in elements)
                 {
                     string itemId = item.GetAttribute("id");
-                    if ((itemId == "intro" || itemId == "try-it-out" || itemId == "setup") && !item.Displayed)
+                    if ((itemId == "intro" || itemId == "setup") && !item.Displayed)
                     {
                         return false;
                     }
 
-                    if (itemId != "intro" && itemId != "try-it-out" && itemId != "setup" && item.Displayed)
+                    if (itemId != "intro" && itemId != "setup" && item.Displayed)
                     {
                         return false;
                     }
