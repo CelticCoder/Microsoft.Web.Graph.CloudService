@@ -1,5 +1,4 @@
 <Playlist Version="1.0">
   <Add Test="MSGraphTest.MSGraphDocumentationTest.Acceptance_Graph_S04_TC02_CanToggleArrowHideInLargeDocumentaionPage" />
-  <Add Test="MSGraphTest.MSGraphGetstartedTest.Acceptance_Graph_S03_TC03_TryItOut_GetUsers" />
   <Add Test="MSGraphTest.MSGraphGetstartedTest.Acceptance_Graph_S03_TC09_CanDownloadCode_Node" />
 </Playlist>

@@ -114,6 +114,10 @@ namespace MSGraphTest
             GraphBrowser.GetWindowSize(out currentWidth, out currentHeight);
 
             GraphBrowser.ZoomToPercent(50);
+            if (GraphUtility.BrowserType == "IE32")
+            {
+                GraphBrowser.Wait(TimeSpan.FromSeconds(3));
+            }
 
             Assert.IsFalse(
                 GraphUtility.IsToggleArrowDisplayed(),

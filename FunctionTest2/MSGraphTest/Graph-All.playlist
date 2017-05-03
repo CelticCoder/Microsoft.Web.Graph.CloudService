@@ -12,14 +12,7 @@
   <Add Test="MSGraphTest.MSGraphNavigationTest.BVT_Graph_S01_TC03_CanGoToDocumentationPage" />
   <Add Test="MSGraphTest.MSGraphDocumentationTest.Comps_Graph_S04_TC01_CanToggleArrowWorkInSmallDocumentaionPage" />
   <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC01_CanChoosePlatform" />
-  <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC02_ShowThreeCardsByDefault" />
-  <Add Test="MSGraphTest.MSGraphGetstartedTest.Acceptance_Graph_S03_TC03_TryItOut_GetUsers" />
-  <Add Test="MSGraphTest.MSGraphGetstartedTest.Comps_Graph_S03_TC04_TryItOut_GetGroups" />
-  <Add Test="MSGraphTest.Comps_Graph_S03_TC05_TryItOut_GetMessages" />
-  <Add Test="MSGraphTest.Comps_Graph_S03_TC06_TryItOut_GetFiles" />
-  <Add Test="MSGraphTest.Comps_Graph_S03_TC07_TryItOut_GetEvents" />
-  <Add Test="MSGraphTest.MSGraphGetstartedTest.Comps_Graph_S03_TC08_TryItOut_GetContacts" />
-  <Add Test="MSGraphTest.MSGraphGetstartedTest.Comps_Graph_S03_TC08_ParameterChangedBySwitchingService" />
+  <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC02_ShowTwoCardsByDefault" />
   <Add Test="MSGraphTest.MSGraphGetstartedTest.Acceptance_Graph_S03_TC09_CanDownloadCode_Node" />
   <Add Test="MSGraphTest.MSGraphGetstartedTest.BVT_Graph_S03_TC10_CanLoadGettingStartedPlatformImages" />
   <Add Test="MSGraphTest.MSGraphDocumentationTest.Comps_Graph_S12_TC06_CheckInThisArticle" />
