@@ -1,0 +1,24 @@
+﻿//
+// Banner to use at the top of static pages
+//
+
+.dxportal-banner-row {
+    @extend .ms-Grid-row;
+    height: 150px;
+    background-image: url('https://msgraph.blob.core.windows.net:443/media/Default/Home-Page/graph_changelog_banner_1900x150.png');
+    background-color: transparent;
+    background-position: center;
+}
+
+.dxportal-banner-title {
+    @extend .ms-font-su;
+    @extend .ms-fontColor-white;
+    font-size: 68px;
+    height: 150px;
+    line-height: 150px
+}
+
+.dxportal-banner-image-col {
+	@extend .ms-Grid-col;
+	@extend .ms-u-sm12;
+}

@@ -1,0 +1,18 @@
+﻿//
+// Layout utilities and subclasses
+//
+
+@import 'iconList.scss';
+@import 'banner.scss';
+
+.dxportal-grid {
+    @extend .ms-Grid;
+    max-width: 978px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dxportal-centered {
+	display: block;
+    margin: auto;
+}

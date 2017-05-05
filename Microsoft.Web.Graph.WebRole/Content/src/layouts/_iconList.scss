@@ -1,0 +1,35 @@
+﻿//
+// IconList is a responsive grid with cells that have a single icon in the top-half and content in the bottom half
+//
+
+.dxportal-iconList-grid {
+    @extend .dxportal-grid;
+}
+
+.dxportal-iconList-col {
+	@extend .ms-Grid-col;
+	@extend .ms-u-sm12;
+	@extend .ms-u-md6;
+	@extend .ms-u-lg4;
+    padding: 15px;
+}
+
+@mixin dxportal-iconList-cell ($height) {
+    height: $height;
+    padding: 30px;
+}
+
+.dxportal-iconList-image-col {
+	@extend .ms-Grid-col;
+	@extend .ms-u-sm12;
+}
+
+.dxportal-iconList-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.dxportal-iconList-title {
+	@extend .ms-font-xl;
+	@extend .ms-u-textAlignCenter;
+}

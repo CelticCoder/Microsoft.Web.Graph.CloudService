@@ -1,0 +1,21 @@
+﻿//
+// Styles specific to Code Samples & SDKs page
+//
+
+.dxportal-cssdk {
+    @extend .ms-bgColor-neutralLight;
+    @extend .ms-fontColor-black;
+}
+
+.dxportal-cssdk-iconList-cell {
+    @extend .ms-bgColor-white;
+    @include dxportal-iconList-cell(220px);
+}
+
+.dxportal-cssdk-links {
+	@extend .ms-Grid-col;
+	@extend .ms-u-sm6;
+    @extend .ms-font-m-plus;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

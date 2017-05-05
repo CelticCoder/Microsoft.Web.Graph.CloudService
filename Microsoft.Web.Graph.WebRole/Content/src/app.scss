@@ -1,35 +1,8 @@
+//
+// Graph portal module loader
+//
+
 @import '../../node_modules/office-ui-fabric-react/dist/sass/Fabric.scss';
-
-.docs-IconList-colors {
-	@extend .ms-bgColor-neutralLighter;
-	@extend .ms-u-borderBase;
-	@extend .ms-borderColor-white;
-}
-
-.docs-IconList-title {
-	@extend .ms-font-xl;
-	@extend .ms-u-textAlignCenter;
-}
-
-.docs-Grid-two-col {
-	@extend .ms-Grid-col;
-	@extend .ms-u-sm6;
-}
-
-.docs-Grid-one-col {
-	@extend .ms-Grid-col;
-	@extend .ms-u-sm12;
-}
-
-.docs-Grid-three-col-responsive {
-	@extend .ms-Grid-col;
-	@extend .ms-u-sm12;
-	@extend .ms-u-md6;
-	@extend .ms-u-lg4;
-}
-
-.docs-Image-centered {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+@import '../../node_modules/office-ui-fabric-js/dist/sass/Fabric.Components.scss';
+@import "layouts/layouts.scss";
+@import "pages/pages.scss";
