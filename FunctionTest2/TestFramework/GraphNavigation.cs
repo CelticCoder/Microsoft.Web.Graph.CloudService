@@ -30,7 +30,7 @@ namespace TestFramework
         private IWebElement samplesandsdksLinkElement;
 
         //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/graph/docs/overview/changelog')]")]
-        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/graph/docs/overview/changelog')]")]
+        [FindsBy(How = How.XPath, Using = "//nav[@id='uhf-c-nav']/a[contains(@href,'/graph/docs/concepts/changelog')]")]
         private IWebElement changelogLinkElement;
 
         //[FindsBy(How = How.XPath, Using = "//ul[@class='c-menu-container shell-category-top-level shell-category-nav-wrapper']/li/a[contains(@href,'/graph/examples')]")]
